@@ -24,11 +24,3 @@ fprintf('\n\t\tEl valor aproximado de x es: %9.15f\n',double(p));
 else
     disp('Error f prima es igual a 0')
 end
-
-
-
-
-%cilindro AL=2*pi*r*h; AT=2*pi*r(h+r); V=pi*(r^2)*h
-%cono AL= pi*r*S ; AT=pi*r*S+pi*r^2; V=(pi*(r^2)*h)/3
-%Trapecio A=((b+B)/2)*h
-

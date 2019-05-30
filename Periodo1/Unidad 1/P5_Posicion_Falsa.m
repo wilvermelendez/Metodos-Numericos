@@ -38,12 +38,4 @@ if(Fp1*Fp0<0)
     fprintf('El valor aproximado de x es: %2.15f\n', double(p2))
 else
     fprintf('\n\t\tFuncion Incorrecta o P0 y P1 son de signo igual. \n')
-    
-    
-    
-    %x es: 32.905981806689198
-    %F(x): (sqrt((50)^2+(100+x)^2))-142
-   % x+100 distan
-   %por pitagoras 
-
 end

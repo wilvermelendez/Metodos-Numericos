@@ -1,6 +1,10 @@
 clear all
 clc
 syms x
+g=9.81;
+t=4;
+v=36;
+m=80;
 disp('MÉTODO DE BISECCIÓN')
 fprintf('---------------------------\n');
 Fx=input('Función f(x): ');
