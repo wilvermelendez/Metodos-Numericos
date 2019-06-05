@@ -47,16 +47,16 @@ for i=1:t
     fax=num/den;
     L(i)=subs(fax,val);
     Lp(i)=subs(diff(fax,x),val);
-    fprintf('\nL%1.0f(%3.3f)=%3.8f',double(i-1),double(val),double(L(i)));
-    fprintf('\nL´%1.0f(%3.3f)=%3.8f\n',double(i-1),double(val),double(Lp(i)));
+    fprintf('\nL%1.0f(%3.3f)=%9.15f',double(i-1),double(val),double(L(i)));
+    fprintf('\nL´%1.0f(%3.3f)=%9.15f\n',double(i-1),double(val),double(Lp(i)));
 end
 he=zeros(1,t);
 hen=zeros(1,t);
 for i=1:t
     he(i)=(1-2*(val-dato(i))*Lp(i))*(L(i))^2;
     hen(i)=(val-dato(i))*(L(i))^2;
-    fprintf('\nH%1.0f(%3.3f)=%3.8f',double(i-1),double(val),double(he(i)));
-    fprintf('\n^H%1.0f(%3.3f)=%3.8f\n',double(i-1),double(val),double(hen(i)));
+    fprintf('\nH%1.0f(%3.3f)=%9.15f',double(i-1),double(val),double(he(i)));
+    fprintf('\n^H%1.0f(%3.3f)=%9.15f\n',double(i-1),double(val),double(hen(i)));
 end
 H=0;
 fprintf('\nPolinomio de Hermite\n');

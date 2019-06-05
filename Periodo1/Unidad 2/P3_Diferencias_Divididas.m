@@ -67,16 +67,4 @@ fprintf('P%1.0f(%3.3f)= %9.15f\n\n',double(t-1),double(val),double(pol));
 if opc==1
     fprintf('Valor Exacto de la Función: %9.15f',double(subs(f,val)));
     fprintf('\nError: %e\n\n',double(abs(pol-subs(f,val))));
-end
-
-%vpasolve(exp((16*x^2)-1)-exp(6.5076))
- 
-%ans =
- 
-%-0.68500000000000000599799770784617
-
-%P5(-0.685)= 610.197649405546490
-
-%Valor Exacto de la Función: 670.215967501998310
-%Error: 6.001832e+01
- 
+end 

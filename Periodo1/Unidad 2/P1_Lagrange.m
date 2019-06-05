@@ -45,7 +45,7 @@ for i=1:t
         end
     end
     L(i)=num/den;
-    fprintf('\nL%1.0f(%3.3f)=%3.8f\n\n',i-1,val,L(i));
+    fprintf('\nL%1.0f(%3.3f)=%9.15f\n\n',i-1,val,L(i));
 end
 fprintf('Polinomio:\n');
 fprintf('P%1.0f(x)=',t-1);
@@ -61,15 +61,15 @@ for i=1:t
 end
 fprintf('P%1.0f(%3.3f)=',double(t-1),double(val));
 for i=1:t
-    fprintf('(%9.8f)*(%9.8f)',L(i),fun(i));
+    fprintf('(%9.15f)*(%9.15f)',L(i),fun(i));
     if i==t
         fprintf('\n');
     else
         fprintf(' + ');
     end
 end
-fprintf('P%1.0f(%3.3f)= %9.8f\n\n',double(t-1),double(val),double(pol));
+fprintf('P%1.0f(%3.3f)= %9.15f\n\n',double(t-1),double(val),double(pol));
 if opc==1
-    fprintf('Valor Exacto de la Función: %9.8f',double(subs(f,val)));
+    fprintf('Valor Exacto de la Función: %9.15f',double(subs(f,val)));
     fprintf('\nError: %e\n\n',double(abs(pol-subs(f,val))));
 end

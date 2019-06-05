@@ -77,8 +77,8 @@ for i=2:t
         fprintf(' + ');
     end
 end
-fprintf('H%1.0f(%3.3f)= %9.8f\n\n',double(t-1),double(val),double(h));
+fprintf('H%1.0f(%3.3f)= %9.15f\n\n',double(t-1),double(val),double(h));
 if opc==1
-    fprintf('Valor Exacto de la Función: %9.8f',double(subs(f,val)));
+    fprintf('Valor Exacto de la Función: %9.15f',double(subs(f,val)));
     fprintf('\nError: %e\n\n',double(abs(h-subs(f,val))));
 end

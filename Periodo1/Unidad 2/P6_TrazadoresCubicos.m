@@ -10,6 +10,7 @@
 
 
 clear all
+clc
 syms x
 fprintf('                            ----------------------------------\n')
 fprintf('                                    TRAZADORES CUBICOS (x)\n')
@@ -57,7 +58,6 @@ fprintf('\n');
 
 for i=1:n-2
    b(i)=2*(H(i)+H(i+1));
-   %b(i)=((A(i+1)-A(i))/H(i))-H(
    end
    
    for i=1:n-2
@@ -67,7 +67,7 @@ for i=1:n-2
    
    fprintf ('Las ecuaciones son: \n');
    for i=1:n-2
-      fprintf('%3.8f *C(%1.0f) +(%3.8f)*C(%1.0f) + (%3.8f)*C(%1.0f) = %3.8f\n',double(H(i)),double(i-1),double(b(i)),double(i),double(H(i+1)),double(i+1),double(d(i)));
+      fprintf('%9.15f *C(%1.0f) +(%9.15f)*C(%1.0f) + (%9.15f)*C(%1.0f) = %9.15f\n',double(H(i)),double(i-1),double(b(i)),double(i),double(H(i+1)),double(i+1),double(d(i)));
    end
    
    D=zeros(n,n);
@@ -119,19 +119,19 @@ for i=1:n-2
    
    o=(C(cont+1)-C(cont))/(3*H(cont));
    
-   fprintf('El valor de la constante d(%1.0f) es : %3.8f\n',double(cont-1),double(o));
+   fprintf('El valor de la constante d(%1.0f) es : %9.15f\n',double(cont-1),double(o));
    fprintf('\n');
    
    f=(A(cont+1)-A(cont))/(H(cont))-((H(cont)*(2*C(cont)+C(cont+1)))/3);
    
-   fprintf('El valor de la constante b(%1.0f) es : %3.8f\n',double(cont-1),double(f));
+   fprintf('El valor de la constante b(%1.0f) es : %9.15f\n',double(cont-1),double(f));
    fprintf('\n');
 
 M=A(cont)+f*(z-X(cont))+C(cont)*(z-X(cont))^2+o*(z-X(cont))^3;
 
-fprintf('El polinomio es: S(x) %0.8f + (%3.8f)*(x- %0.8f)+ (%3.8f)*(x- %0.8f)^2 + (%3.8f)*(x- %0.8f)^3\n',double(A(cont)),double(f),double(X(cont)),double(C(cont)),double(X(cont)),double(o),double(X(cont)));
+fprintf('El polinomio es: S(x) %9.15f + (%9.15f)*(x- %9.15f)+ (%9.15f)*(x- %9.15f)^2 + (%9.15f)*(x- %9.15f)^3\n',double(A(cont)),double(f),double(X(cont)),double(C(cont)),double(X(cont)),double(o),double(X(cont)));
 
-fprintf('El resultado final es : %3.8f',double(M));
+fprintf('El resultado final es : %9.15f',double(M));
       
 fprintf('\n');
 
