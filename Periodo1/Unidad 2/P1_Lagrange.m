@@ -23,13 +23,38 @@ end
 fprintf('\nGrado del Polinomio: %2.0f\n',t-1);
 fprintf('\nObteniendo las Funciones de Lagrange\n');
 L=zeros(1,t);
+Lx=zeros(1,t);
 for i=1:t
     num=1;
     fprintf('\t   ')
     for j=1:t        
         if j~=i
+            fprintf('(x-x%1.0f)',j-1);
+        end
+    end
+    fprintf('\nL%1.0f(x)=',i-1);
+    for j=1:t
+        fprintf('--------');
+    end
+    fprintf('\n\t   ');
+    den=1;
+    for j=1:t 
+        if j~=i
+            fprintf('(x%1.0f-x%1.0f)',i-1,j-1);
+        end
+    end
+    fprintf('\n\n');
+end
+fprintf('\nCon Valores\n');
+for i=1:t
+    num=1;
+    %numx=1;
+    fprintf('\t   ')
+    for j=1:t        
+        if j~=i
             fprintf('(x-(%3.3f))',dato(j));
             num=num*(val-dato(j));
+            %numx=numx*(x-dato(j));
         end
     end
     fprintf('\nL%1.0f(x)=',i-1);
@@ -45,8 +70,10 @@ for i=1:t
         end
     end
     L(i)=num/den;
+    %Lx(i)=numx/den;
     fprintf('\nL%1.0f(%3.3f)=%9.15f\n\n',i-1,val,L(i));
 end
+%Lx
 fprintf('Polinomio:\n');
 fprintf('P%1.0f(x)=',t-1);
 pol=0;
