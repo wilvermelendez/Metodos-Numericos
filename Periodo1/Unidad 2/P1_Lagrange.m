@@ -114,7 +114,7 @@ for i=1:t
 end
 
 fprintf('Formula en termino de x\n');
-fprintf('\n\nP%1.0f(%3.3f)=\n\n',t-1,val);
+fprintf('\n\nP%1.0f(x)=\n\n',t-1,val);
 
 pretty(simplify(polx))
 
