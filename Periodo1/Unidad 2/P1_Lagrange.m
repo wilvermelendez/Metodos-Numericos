@@ -23,7 +23,6 @@ end
 fprintf('\nGrado del Polinomio: %2.0f\n',t-1);
 fprintf('\nObteniendo las Funciones de Lagrange\n');
 L=zeros(1,t);
-Lx=zeros(1,t);
 for i=1:t
     num=1;
     fprintf('\t   ')
@@ -72,11 +71,13 @@ end
 fprintf('\nCon Valores numerador y denominador en termino de x\n');
 for i=1:t
     num=1;
+    numx=1;
     fprintf('\t   ')
     for j=1:t        
         if j~=i
             fprintf('(x-(%3.3f))',dato(j));
             num=num*(val-dato(j));
+            numx=numx*(x-dato(j));
         end
     end
     fprintf('\nL%1.0f(x)=',i-1);
@@ -92,15 +93,19 @@ for i=1:t
         end
     end
     L(i)=num/den;
+    Lx(i)=numx/den;
     fprintf('\nL%1.0f(%3.3f)=%9.15f\n\n',i-1,val,L(i));
 end
+
 
 fprintf('\nFormula\n');
 fprintf('P%1.0f(x)=',t-1);
 pol=0;
+polx=0;
 for i=1:t
     fprintf('F(X%1.0f)*L%1.0f(x)',i-1,i-1);
     pol=pol+(L(i)*fun(i));
+    polx=polx+(Lx(i)*fun(i));
     if i==t
         fprintf('\n');
     else
@@ -109,19 +114,11 @@ for i=1:t
 end
 
 fprintf('Formula en termino de x\n');
-fprintf('P%1.0f(x)=',t-1);
-pol=0;
-for i=1:t
-    fprintf('(%9.15f)*L%1.0f(x)',fun(i),i-1);
-    pol=pol+(L(i)*fun(i));
-    if i==t
-        fprintf('\n');
-    else
-        fprintf(' + ');
-    end
-end
+fprintf('\n\nP%1.0f(%3.3f)=\n\n',t-1,val);
 
-fprintf('P%1.0f(%3.3f)=',double(t-1),double(val));
+pretty(simplify(polx))
+
+fprintf('\nP%1.0f(%3.3f)=',double(t-1),double(val));
 for i=1:t
     fprintf('(%9.15f)*(%9.15f)',fun(i),L(i));
     if i==t
