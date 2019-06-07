@@ -69,6 +69,7 @@ for i=2:t
 end
 
 %imprimiendo formular SOLO en terminos x
+fprintf('\nEsta función puede ser copiada y asiganda a una variable para hacer evaluaciones o aplicar simplify en caso de ser necesario\n');
 fprintf('P%1.0f(x)= %9.9f + ',t-1,DD(1,1));
 for i=2:t
     fprintf('%9.9f*',DD(i,i));
@@ -80,7 +81,7 @@ for i=2:t
         end
     end
     if i==t
-        fprintf('\n');
+        fprintf('\n\n');
     else
         fprintf(' + ');
     end

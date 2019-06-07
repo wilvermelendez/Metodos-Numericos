@@ -15,7 +15,7 @@ switch opc
         fprintf('Valores de F(x): ');
         for i=1:t
             fun(i)=subs(f,dato(i));
-            fprintf('%f,', fun(i));
+            fprintf('%9.9f,', fun(i));
         end
     case 2
         fun=input('Valores F(x) [F(X0) F(X1) ... F(Xn)]: ');
@@ -65,8 +65,8 @@ for i=1:t
             den=den*(dato(i)-dato(j));
         end
     end
-    fprintf('(%9.15f)',den);
-    fprintf('\nL%1.0f(%3.3f)=%9.15f\n\n',i-1,val,L(i));
+    fprintf('(%9.9f)',den);
+    fprintf('\nL%1.0f(%3.3f)=%9.9f\n\n',i-1,val,L(i));
 end
 fprintf('\nCon Valores numerador y denominador en termino de x\n');
 for i=1:t
@@ -94,7 +94,7 @@ for i=1:t
     end
     L(i)=num/den;
     Lx(i)=numx/den;
-    fprintf('\nL%1.0f(%3.3f)=%9.15f\n\n',i-1,val,L(i));
+    fprintf('\nL%1.0f(%3.3f)=%9.9f\n\n',i-1,val,L(i));
 end
 
 
@@ -114,21 +114,19 @@ for i=1:t
 end
 
 fprintf('Formula en termino de x\n');
-fprintf('\n\nP%1.0f(x)=\n\n',t-1,val);
-
+fprintf('P%1.0f(x)=\n\n',t-1);
 pretty(simplify(polx))
-
 fprintf('\nP%1.0f(%3.3f)=',double(t-1),double(val));
 for i=1:t
-    fprintf('(%9.15f)*(%9.15f)',fun(i),L(i));
+    fprintf('(%9.9f)*(%9.9f)',fun(i),L(i));
     if i==t
         fprintf('\n');
     else
         fprintf(' + ');
     end
 end
-fprintf('P%1.0f(%3.3f)= %9.15f\n\n',double(t-1),double(val),double(pol));
+fprintf('P%1.0f(%3.3f)= %9.9f\n\n',double(t-1),double(val),double(pol));
 if opc==1
-    fprintf('Valor Exacto de la Función: %9.15f',double(subs(f,val)));
+    fprintf('Valor Exacto de la Función: %9.9f',double(subs(f,val)));
     fprintf('\nError: %e\n\n',double(abs(pol-subs(f,val))));
 end
