@@ -66,7 +66,7 @@ for i=1:t
         end
     end
     fprintf('(%9.9f)',den);
-    fprintf('\nL%1.0f(%3.3f)=%9.9f\n\n',i-1,val,L(i));
+   
 end
 fprintf('\nCon Valores numerador y denominador en termino de x\n');
 for i=1:t
