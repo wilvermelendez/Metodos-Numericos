@@ -11,16 +11,13 @@ opc=input('Opción: ');
 switch opc
     case 1
         f=input('Función f(x): ');
-        fun=zeros(1,t);
         fprintf('Valores de F(x): ');
-        for i=1:t
-            fun(i)=subs(f,dato(i));
-            fprintf('%9.9f,', fun(i));
-        end
+        fun=double(subs(f,dato));
+        fun %#ok<NOPTS>
     case 2
         fun=input('Valores F(x) [F(X0) F(X1) ... F(Xn)]: ');
 end
-fprintf('\nGrado del Polinomio: %2.0f\n',t-1);
+fprintf('\nGrado del Polinomio: %2.0f',t-1);
 fprintf('\nObteniendo las Funciones de Lagrange\n');
 L=zeros(1,t);
 for i=1:t

@@ -7,10 +7,7 @@ datos=input('Datos Ordenados[X0 X1 X2 ... Xn]: ');
 longitud=length(datos);
 % fun=input('Valores F(x) [F(X0) F(X1) ... F(Xn)]: ');
 f=input('Función f(x): ');
-fun=zeros(1,longitud);
-for i=1:longitud
-    fun(i)=subs(f,datos(i));
-end
+fun=double(subs(f,datos));
 DD=zeros(longitud);
 DD(:,1)=fun';
 for j=2:longitud
@@ -20,15 +17,15 @@ for j=2:longitud
 end
 DD
 
-pol=DD(1,1);
+aproximado=DD(1,1);
 for i=2:longitud
     factor=DD(i,i);
     for j=1:i-1
         factor=factor*(valor-datos(j));
     end
-    pol=pol+factor;
+    aproximado=aproximado+factor;
 end
-fprintf('P%1.0f(%3.3f)= %9.9f\n\n',double(longitud-1),double(valor),double(pol));
+fprintf('P%1.0f(%3.3f)= %9.9f\n\n',double(longitud-1),double(valor),double(aproximado));
 % fprintf('Valor Exacto de la Función: %9.9f',double(subs(f,val)));
 % fprintf('\nError: %e\n\n',double(abs(pol-subs(f,val))));
  

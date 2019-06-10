@@ -7,10 +7,7 @@ datos=input('Datos [X0 X1 X2 ... Xn]: ');
 longitud=length(datos);
 % fun=input('Valores Iniciales [F(X0) F(X1) ... F(Xn)]: ');
 f=input('Función f(x): ');
-fun=zeros(1,longitud);
-for i=1:longitud
-    fun(i)=subs(f,datos(i));
-end
+fun=double(subs(f,datos));
 Q=zeros(longitud);
 Q(:,1)=fun;
 for i=2:longitud

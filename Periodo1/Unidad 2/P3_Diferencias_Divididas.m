@@ -11,12 +11,9 @@ opc=input('Opción: ');
 switch opc
     case 1
         f=input('Función f(x): ');
-        fun=zeros(1,t);
         fprintf('Valores de F(x): ');
-        for i=1:t
-            fun(i)=subs(f,dato(i));
-            fprintf('%8.15f, ', fun(i));
-        end
+        fun=double(subs(f,dato));
+        fun %#ok<NOPTS>
     case 2
         fun=input('Valores F(x) [F(X0) F(X1) ... F(Xn)]: ');
 end
