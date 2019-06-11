@@ -18,10 +18,10 @@ end
 DD
 
 aproximado=DD(1,1);
-polx=1;
+polx=0;
 for i=2:longitud
     factor=DD(i,i);
-    factorx=1;
+    factorx=factor;
     for j=1:i-1
         factor=factor*(valor-datos(j));
         factorx=factorx*(x-datos(j));
