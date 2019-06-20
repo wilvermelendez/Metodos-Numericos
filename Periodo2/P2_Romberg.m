@@ -23,8 +23,8 @@ for j=2:n
     R(j,1)=(1/2)*(R(j-1,1)+h(j-1)*Sum);
 end
 for j=2:n
-    for i=j:n
-        R(i,j)=R(i,j-1) + (R(i,j-1)-R(i-1,j-1))/((4^(j-1))-1);
+    for i=1:n-j+1
+        R(i,j)=((4^(j-1))*R(i+1,j-1)-R(i,j-1))/(4^(j-1)-1);
     end
 end
 
