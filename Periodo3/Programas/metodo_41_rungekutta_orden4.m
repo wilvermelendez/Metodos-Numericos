@@ -7,10 +7,10 @@
 % - Introduzca el valor de a                  : 0
 % - Introduzca el valor de b                  : 1
 % - Introduzca el tamaño de paso h            : 0.1
-clc
-clear all
+clear all;
+clc;
 disp('Método de RUNGE-KUTTA de orden 4');
-syms t y 
+syms x y;
 d=input('Ingrese la ecuación diferencial (ej ''Dy=cos(2*x)+sin(3*x)''): ');
 n=input('Ingrese la condición ''y(a)=b'': ');
 f1=input('Ingrese la función de trabajo: ');
@@ -19,7 +19,7 @@ a=input('Ingrese el valor de a: ');
 b=input('Ingrese el valor de b: ');
 h=input('Ingrese el valor h: ');
 fprintf('La solución de la ecuación diferencial es : \n');
-m = dsolve(d,n,'t');
+m = dsolve(d,n,'x');
 pretty(m);
 n=(b-a)/h;
 
@@ -40,15 +40,15 @@ fprintf('Y0 = %9.15f \n',ya);
 i=1;
 for j=0:(n)
    fprintf('Iteración: %1.0f\n',i);  
-   k1=h*subs(f1,{t,y},{M(i,2),M(i,3)});
+   k1=subs(f1,{x,y},{M(i,2),M(i,3)});
    fprintf('K1 = %9.15f\n',double(k1)) 
-   k2=h*subs(f1,{t,y},{(M(i,2)+(h/2)),(M(i,3)+(k1/2))});
+   k2=subs(f1,{x,y},{M(i,2)+h/2,M(i,3)+k1*h/2});
    fprintf('K2 = %9.15f\n',double(k2))
-   k3=h*subs(f1,{t,y},{(M(i,2)+(h/2)),(M(i,3)+(k2/2))});
+   k3=subs(f1,{x,y},{M(i,2)+h/2,M(i,3)+k2*h/2});
    fprintf('K3 = %9.15f\n',double(k3))
-   k4=h*subs(f1,{t,y},{(M(i,2)+h),(M(i,3)+k3)});
+   k4=subs(f1,{x,y},{M(i,2)+h,M(i,3)+k3*h});
    fprintf('K4 = %9.15f\n',double(k4))
-   M(i+1,3)=M(i,3)+((1/6)*(k1+(2*k2)+(2*k3)+k4));
+   M(i+1,3)=M(i,3)+(h/6)*(k1+2*k2+2*k3+k4);
    fprintf('Y%1.0f = %9.15f\n',i,double(M(i+1,3)))
    i=i+1;
 end
