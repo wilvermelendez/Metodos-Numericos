@@ -24,7 +24,8 @@ M(1,2)=a;
 M(1,3)=ya;
 M(1,4)=a;
 d=0;
-disp('Formulas para cada iteracion');
+fprintf('FÓRMULAS DE CADA ITERACIÓN\n');
+fprintf('Yi+1 = Yi + h((16/135)*K1+(6656/12825)*K3+(28561/56430)*K4-(9/50)*K5+(2/55)*K6)+\n');
 %Este for obtiene y guarda todos los valores de t
 %También se utiliza para evaluar la ecuación diferencial
 for p=a:h:b

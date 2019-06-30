@@ -11,8 +11,8 @@ clc
 clear all
 disp('Método de RUNGE-KUTTA de orden 4');
 syms t y 
-d=input('Ingrese la ecuación diferencial en (x,y): ');
-n=input('Ingrese la condición y(a)=b: ');
+d=input('Ingrese la ecuación diferencial (ej ''Dy=cos(2*x)+sin(3*x)''): ');
+n=input('Ingrese la condición ''y(a)=b'': ');
 f1=input('Ingrese la función de trabajo: ');
 ya=input('Ingrese el valor de la condicion: ');
 a=input('Ingrese el valor de a: ');
@@ -34,8 +34,9 @@ for p=a:h:b
    M(d,2)=p;
    M(d,4)=subs(m,p);
 end
-disp('Formulas de cada iteracion');
-fprintf('w0 = %9.15f \n',ya);
+fprintf('FÓRMULAS DE CADA ITERACIÓN\n');
+fprintf('Yi+1 = Yi + h[a1K1+a2K2+a3K3+a4K4]\n');
+fprintf('Y0 = %9.15f \n',ya);
 i=1;
 for j=0:(n)
    fprintf('Iteración: %1.0f\n',i);  
@@ -48,11 +49,10 @@ for j=0:(n)
    k4=h*subs(f1,{t,y},{(M(i,2)+h),(M(i,3)+k3)});
    fprintf('K4 = %9.15f\n',double(k4))
    M(i+1,3)=M(i,3)+((1/6)*(k1+(2*k2)+(2*k3)+k4));
-   fprintf('w%1.0f = %9.15f\n',i,double(M(i+1,3)))
+   fprintf('Y%1.0f = %9.15f\n',i,double(M(i+1,3)))
    i=i+1;
 end
-fprintf('              i             ti                wi+1                y(t)                Error\n');
-for i=1:n
-    M(i,5)=abs(M(i,4)-M(i,3));
-end
+%Error
+M(:,5)=abs(M(:,4)-M(:,3));
+fprintf('      i                ti                   Y(ti)                  F(ti)              Error\n');   
 M

@@ -29,7 +29,7 @@ syms x y
 eb=0;
 ix=0;
 e=input('Indique el orden a utilizar: ');
-d=input('Introduzca la ecuación diferencial: ');
+d=input('Introduzca la ecuación diferencial (ej: ''Dy=y-(x^2)+1''): ');
 n=input('Introduzca la condición y(a)=b: ');
 for ea=1:1:e
    fprintf('Función: %1.0f ',ea);
@@ -59,18 +59,17 @@ for p=a:h:b
 end
 n=length(h:(b-h));
 %Este for obtiene los valores aproximados de solución
+fprintf('FORMULAS: \n');
+fprintf('Yi+1 = Yi+h*f(ti,yi)+(h^2/2!)*f1(ti,yi)+(h^3/3!)*f2(ti,yi)+(h^4/4!)*f3(ti,yi)+...+(h^n/n!)*fn-1(ti,yi)\n');
 for sp=a:h:(b-h)
-   af=sprintf(' w%1.0f = w%1.0f\n',i+1,i);
-   ag=sprintf(' w%1.0f = %1.15f\n',i+1,M(i+1,3));
+   af=sprintf(' Y%1.0f = Y%1.0f',i+1,i);
+   ag=sprintf(' Y%1.0f = %1.15f',i+1,M(i+1,3));
    i=1+i;
    qc=0;
    sd=1;
-   fprintf('FORMULAS: \n');
-   fprintf('wi+1 = wi+h*f(ti,wi)+(h^2/2!)*f1(ti,wi)+(h^3/3!)*f2(ti,wi)+(h^4/4!)*f3(ti,wi)+...+(h^n/n!)*fn-1(ti,wi)\n');
-   fprintf('\n');
    while sd <= e
       qc=qc+(((h^(sd))/(factorial(sd)))*(subs((f1(sd)),{x,y},{M(i,2),M(i,3)})));
-      ad=sprintf(' + h^%1.0f/%1.0f f%1.0f (t%1.0f, w%1.0f)',sd,factorial(sd),sd-1,i-1,i-1);
+      ad=sprintf(' + h^%1.0f/%1.0f f%1.0f (t%1.0f, y%1.0f)',sd,factorial(sd),sd-1,i-1,i-1);
       ah=sprintf(' + %10.8f^%1.0f/%1.0f f%1.0f (%10.8f, %10.8f)',h,sd,factorial(sd),sd-1,M(i,2),M(i,3));
       af=[af,ad];
       ag=[ag,ah];
@@ -82,8 +81,6 @@ for sp=a:h:(b-h)
    af=' ';
    ag=' ';
 end
-fprintf('\n      i             ti                 wi                 y(t)               Error\n');  
-for i=1:n
-    M(i,5)=abs(M(i,4)-M(i,3));
-end
+M(:,5)=abs(M(:,4)-M(:,3));
+fprintf('\n       i                ti                   Y(ti)                  F(ti)              Error\n');   
 M

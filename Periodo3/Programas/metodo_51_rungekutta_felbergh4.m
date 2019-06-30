@@ -10,8 +10,8 @@ clc
 clear all
 disp('Método de RUNGE-KUTTA-FEHLBERG de orden 4');
 syms x y
-d=input('Ingrese la ecuación diferencial en (x,y): ');
-n=input('Ingrese la condición y(a)=b: ');
+d=input('Ingrese la ecuación diferencial (ej ''Dy=cos(2*x)+sin(3*x)''): ');
+n=input('Ingrese la condición ''y(a)=b'': ');
 f1=input('Ingrese la función de trabajo: ');
 ya=input('Ingrese el valor de la condicion: ');
 a=input('Ingrese el valor de a: ');
@@ -25,7 +25,14 @@ M(1,2)=a;
 M(1,3)=ya;
 M(1,4)=a;
 d=0;
-disp('Formulas por iteracion');
+fprintf('FÓRMULAS DE CADA ITERACIÓN\n');
+fprintf('Yi+1 = Yi + h((25/216)*K1+(1408/2565)*K3+(2197/4104)*K4-(1/5)*K5)+\n');
+fprintf('K1 =F(ti,yi) \n');
+fprintf('K2 =F(ti+(1/4)*h,yi+(1/4)*h*k1) \n');
+fprintf('K3 =F(ti+(3/8)*h,yi+(3/32)*h*k1+(9/32)*h*k2) \n');
+fprintf('K4 =F(ti+(12/13)*h,yi+(1932/2197)*h*k1-(7200/2197)*h*k2+(7296/2197)*h*k3) \n');
+fprintf('K5 =F(ti+h,yi+(439/216)*h-(7200/2197)*h*k2+(7296/2197)*h*k3) \n');
+fprintf('K6 =F(ti+(12/13)*h,yi+(1932/2197)*h*k1-(7200/2197)*h*k2+(7296/2197)*h*k3) \n')
 %Este for obtiene y guarda todos los valores de t
 %También se utiliza para evaluar la ecuación diferencial
 for p=a:h:b
@@ -34,7 +41,7 @@ for p=a:h:b
     M(d,2)=p;
     M(d,4)=subs(m,p);
 end
-fprintf('w0 = %1.9f\n',ya);
+fprintf('Y0 = %1.9f\n',ya);
 for j=a:h:(b-h)
     i=1+i;
     fprintf('Iteración: %1.0f\n',i);
@@ -51,10 +58,7 @@ for j=a:h:(b-h)
     M(i+1,3)=M(i,3)+(25*k1/216)+(1408*k3/2565)+(2197*k4/4104)-(k5/5);
     fprintf('w%1.0f = %9.15f\n',i,double(M(i+1,3)))
 end
-
-n=(b-a)/h;
-for i=1:n
-    M(i,5)=abs(M(i,4)-M(i,3));
-end
-fprintf('              i             ti                wi+1                y(t)              Error');   
+%Error
+M(:,5)=abs(M(:,4)-M(:,3));
+fprintf('      i                ti                   Y(ti)                  F(ti)              Error\n');   
 M

@@ -9,7 +9,7 @@ clear all
 clc
 disp('Método modificado de euler\n');
 syms x y
-d=input('Ingrese la ecuación diferencial: ');
+d=input('Ingrese la ecuación diferencial(ej ''Dy=cos(2*x)+sin(3*x)''): ');
 n=input('Ingrese la condición y(a)=b: ');
 f1=input('Ingrese la función de trabajo: ');
 ya=input('Ingrese la condicion inicial: ');
@@ -36,13 +36,15 @@ for p=a:h:b
 end
 %Este for obtiene los valores aproximados de solución
 disp('Formulas de cada iteracion');
-fprintf('wi+1 = wi + (h/2)f(ti,wi) + (h/2)f(ti+1, wi+hf(ti,wi))\n');
-fprintf('w0 = %1.5f\n',ya);
+fprintf('Yi+1 = Yi + (h/2)f(ti,yi) + (h/2)f(ti+1, yi+hf(ti,yi))\n');
+fprintf('Y0 = %1.5f\n',ya);
 for j=a:h:(b-h)
     i=1+i;
     M(i+1,3)=M(i,3)+((h/2)*(subs(f1,{x,y},{M(i,2),M(i,3)})))+((h/2)*(subs(f1,{x,y},{(M(i,2)+h),(M(i,3)+(h*(subs(f1,{x,y},{M(i,2),M(i,3)}))))})));  
-    fprintf('w%1.0f = w%1.0f + h/2 f(t%1.0f,w%1.0f) + h/2 f(t%1.0f + h,w%1.0f + h f(t%1.0f,w%1.0f))\n',i,i-1,i-1,i-1,i-1,i-1,i-1,i-1);
-    fprintf('w%1.0f = w%1.0f + %1.5f f(%1.9f,w%1.0f) + %1.5f f(%1.9f + %1.5f,w%1.0f + %1.5f f(%1.9f,w%1.0f))\n',i,i-1,h/2,M(i,2),i-1,h/2,M(i,2),h,i-1,h,M(i,2),i-1);
+    fprintf('Y%1.0f = Y%1.0f + h/2 f(t%1.0f,y%1.0f) + h/2 f(t%1.0f + h,y%1.0f + h f(t%1.0f,y%1.0f))\n',i,i-1,i-1,i-1,i-1,i-1,i-1,i-1);
+    fprintf('Y%1.0f = Y%1.0f + %1.5f f(%1.9f,y%1.0f) + %1.5f f(%1.9f + %1.5f,y%1.0f + %1.5f f(%1.9f,y%1.0f))\n',i,i-1,h/2,M(i,2),i-1,h/2,M(i,2),h,i-1,h,M(i,2),i-1);
 end
-fprintf('              i             ti               wi+1                 y(t)');   
+%Error
+M(:,5)=abs(M(:,4)-M(:,3));
+fprintf('      i                ti                   Y(ti)                  F(ti)              Error\n');   
 M

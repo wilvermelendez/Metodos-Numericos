@@ -10,7 +10,7 @@ clear all
 clc
 fprintf('MÉTODO DE HEUN\n')
 syms x y
-d=input('Introduzca la ecuación diferencial: ');
+d=input('Introduzca la ecuación diferencial (ej ''Dy=cos(2*x)+sin(3*x)''): ');
 n=input('Introduzca la condición y(a)=b: ');
 f1=input('Introduzca la función de trabajo: ');
 ya=input('Introduzca la condición inicial: ');
@@ -36,13 +36,15 @@ for p=a:h:b
 end
 %Este for obtiene los valores aproximados de solución
 fprintf('FÓRMULAS DE CADA ITERACIÓN\n');
-fprintf('wi+1 = wi + (h/4)f(ti,wi) + (3h/4)f(ti+(2h/3), wi+(2h/3)f(ti,wi))\n');
-fprintf('w0 = %1.5f\n',ya);
+fprintf('Yi+1 = Yi + (h/4)f(ti,yi) + (3h/4)f(ti+(2h/3), yi+(2h/3)f(ti,yi))\n');
+fprintf('Y0 = %1.5f\n',ya);
 for j=a:h:(b-h)
    i=1+i;
    M(i+1,3)=M(i,3)+((h/4)*(subs(f1,{x,y},{M(i,2),M(i,3)})))+(((3/4)*h)*(subs(f1,{x,y},{(M(i,2)+((2/3)*h)),(M(i,3)+(((2/3)*h)*(subs(f1,{x,y},{M(i,2),M(i,3)}))))})));
-   fprintf('- w%1.0f = w%1.0f + h/4 f(t%1.0f,w%1.0f) + 3/4 h f(t%1.0f + 2/3 h,w%1.0f + 2/3 h f(t%1.0f,w%1.0f))',i,i-1,i-1,i-1,i-1,i-1,i-1,i-1);
-   fprintf('- w%1.0f = w%1.0f + %1.5f f(%1.9f,w%1.0f) + %1.5f f(%1.9f + %1.5f,w%1.0f + %1.5f f(%1.9f,w%1.0f))',i,i-1,h/4,M(i,2),i-1,(3/4)*h,M(i,2),(2/3)*h,i-1,(2/3)*h,M(i,2),i-1);
+   fprintf('- Y%1.0f = Y%1.0f + h/4 f(t%1.0f,y%1.0f) + 3/4 h f(t%1.0f + 2/3 h,y%1.0f + 2/3 h f(t%1.0f,y%1.0f))',i,i-1,i-1,i-1,i-1,i-1,i-1,i-1);
+   fprintf('- Y%1.0f = Y%1.0f + %1.5f f(%1.9f,y%1.0f) + %1.5f f(%1.9f + %1.5f,y%1.0f + %1.5f f(%1.9f,y%1.0f))',i,i-1,h/4,M(i,2),i-1,(3/4)*h,M(i,2),(2/3)*h,i-1,(2/3)*h,M(i,2),i-1);
 end
-fprintf('              i             ti              wi+1                  y(t)');   
+%Error
+M(:,5)=abs(M(:,4)-M(:,3));
+fprintf('      i                ti                   Y(ti)                  F(ti)              Error\n');   
 M
