@@ -32,13 +32,13 @@ for p=a:h:b
    M(d+1,1)=d;
    d=1+d;
    M(d,2)=p;
-   M(d,4)=subs(m,p);
+   %Exacta
+   M(:,4)=subs(m,p);
 end
 fprintf('FÓRMULAS DE CADA ITERACIÓN\n');
 fprintf('Yi+1 = Yi + h[a1K1+a2K2+a3K3+a4K4]\n');
 fprintf('Y0 = %9.15f \n',ya);
-i=1;
-for j=0:(n)
+for i=1:n
    fprintf('Iteración: %1.0f\n',i);  
    k1=subs(f1,{x,y},{M(i,2),M(i,3)});
    fprintf('K1 = %9.15f\n',double(k1)) 
