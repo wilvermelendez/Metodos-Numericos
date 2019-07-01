@@ -7,7 +7,7 @@
 % - Introduzca el tamaño de paso h            : 0.1 
 clear all
 clc
-disp('Método modificado de euler\n');
+disp('Método modificado de euler');
 syms x y
 d=input('Ingrese la ecuación diferencial(ej ''Dy=cos(2*x)+sin(3*x)''): ');
 n=input('Ingrese la condición y(a)=b: ');
@@ -36,11 +36,11 @@ for p=a:h:b
 end
 %Este for obtiene los valores aproximados de solución
 disp('Formulas de cada iteracion');
-fprintf('Yi+1 = Yi + (h/2)f(ti,yi) + (h/2)f(ti+1, yi+hf(ti,yi))\n');
+fprintf('Yi+1 = Yi + (h/2)[f(ti,yi) + f(ti+h, yi+h*f(ti,yi))]\n');
 fprintf('Y0 = %1.5f\n',ya);
 for j=a:h:(b-h)
     i=1+i;
-    M(i+1,3)=M(i,3)+((h/2)*(subs(f1,{x,y},{M(i,2),M(i,3)})))+((h/2)*(subs(f1,{x,y},{(M(i,2)+h),(M(i,3)+(h*(subs(f1,{x,y},{M(i,2),M(i,3)}))))})));  
+    M(i+1,3)=M(i,3)+(h/2)*(subs(f1,{x,y},{M(i,2),M(i,3)})+subs(f1,{x,y},{M(i,2)+h,M(i,3)+h*subs(f1,{x,y},{M(i,2),M(i,3)})}));  
     fprintf('Y%1.0f = Y%1.0f + h/2 f(t%1.0f,y%1.0f) + h/2 f(t%1.0f + h,y%1.0f + h f(t%1.0f,y%1.0f))\n',i,i-1,i-1,i-1,i-1,i-1,i-1,i-1);
     fprintf('Y%1.0f = Y%1.0f + %1.5f f(%1.9f,y%1.0f) + %1.5f f(%1.9f + %1.5f,y%1.0f + %1.5f f(%1.9f,y%1.0f))\n',i,i-1,h/2,M(i,2),i-1,h/2,M(i,2),h,i-1,h,M(i,2),i-1);
 end

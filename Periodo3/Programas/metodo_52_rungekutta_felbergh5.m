@@ -9,7 +9,7 @@
 clear all
 disp('Método de RUNGE-KUTTA-FEHLBERG de orden 5');
 syms x y
-d=input('Ingrese la ecuación diferencial en (x,y): ');
+d=input('Ingrese la ecuación diferencial en (ej ''Dy=cos(2*x)+sin(3*x)''): ');
 n=input('Ingrese la condición y(a)=b: ');
 f1=input('Ingrese la función de trabajo: ');
 ya=input('Ingrese el valor de la condicion inicial: ');
@@ -34,7 +34,7 @@ for p=a:h:b
    M(d,2)=p;
    M(d,4)=subs(m,p);
 end
-fprintf('w0 = %1.9f\n',ya);
+fprintf('Y0 = %1.9f\n',ya);
 for j=a:h:(b-h)
    i=1+i;
    fprintf('Iteración: %1.0f\n',i);
@@ -51,12 +51,10 @@ for j=a:h:(b-h)
    k6=h*subs(f1,{x,y},{M(i,2)+h/2,M(i,3)-(8.*k1/27)+(2*k2)-(3544.*k3/2565)+(1859.*k4/4104)-(11.*k5/40)});
    fprintf('K6 = %9.15f\n',double(k6))
    M(i+1,3)=M(i,3)+(16.*k1/135)+(6656.*k3/12825)+(28561.*k4/56430)-(9.*k5/50)+(2.*k6/55);
-   fprintf('w%1.0f = %9.15f\n',i,double(M(i+1,3)))
+   fprintf('Y%1.0f = %9.15f\n',i,double(M(i+1,3)))
 end
 
-fprintf('              i             ti                wi+1                y(t)                Error');   
-n=(b-a)/h;
-for i=1:n
-    M(i,5)=abs(M(i,4)-M(i,3));
-end
+%Error
+M(:,5)=abs(M(:,4)-M(:,3));
+fprintf('      i                ti                   Y(ti)                  F(ti)              Error\n');   
 M
