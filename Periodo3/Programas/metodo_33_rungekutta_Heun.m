@@ -40,11 +40,15 @@ fprintf('Yi+1 = Yi + (h/4)*[f(ti,yi) + 3*f(ti+2*h/3, yi+(2*h/3)*f(ti,yi))]\n');
 fprintf('Y0 = %1.5f\n',ya);
 for j=a:h:(b-h)
    i=1+i;
-   M(i+1,3)=M(i,3)+(h/4)*(subs(f1,{x,y},{M(i,2),M(i,3)})+3*subs(f1,{x,y},{M(i,2)+2*h/3,M(i,3)+(2*h/3)*subs(f1,{x,y},{M(i,2),M(i,3)})}));
-   fprintf('- Y%1.0f = Y%1.0f + h/4 f(t%1.0f,y%1.0f) + 3/4 h f(t%1.0f + 2/3 h,y%1.0f + 2/3 h f(t%1.0f,y%1.0f))',i,i-1,i-1,i-1,i-1,i-1,i-1,i-1);
-   fprintf('- Y%1.0f = Y%1.0f + %1.5f f(%1.9f,y%1.0f) + %1.5f f(%1.9f + %1.5f,y%1.0f + %1.5f f(%1.9f,y%1.0f))',i,i-1,h/4,M(i,2),i-1,(3/4)*h,M(i,2),(2/3)*h,i-1,(2/3)*h,M(i,2),i-1);
+   k1=subs(f1,{x,y},{M(i,2),M(i,3)});
+   k2=subs(f1,{x,y},{M(i,2)+2*h/3,M(i,3)+(2*h/3)*subs(f1,{x,y},{M(i,2),M(i,3)})});
+   M(i+1,3)=M(i,3)+(h/4)*(k1+3*k2);
+   M(i+1,6)=k1;
+   M(i+1,7)=k2;
+   fprintf('- Y%1.0f = Y%1.0f + h/4 f(t%1.0f,y%1.0f) + 3/4 h f(t%1.0f + 2/3 h,y%1.0f + 2/3 h f(t%1.0f,y%1.0f))\n',i,i-1,i-1,i-1,i-1,i-1,i-1,i-1);
+   fprintf('- Y%1.0f = Y%1.0f + %1.5f f(%1.9f,y%1.0f) + %1.5f f(%1.9f + %1.5f,y%1.0f + %1.5f f(%1.9f,y%1.0f))\n',i,i-1,h/4,M(i,2),i-1,(3/4)*h,M(i,2),(2/3)*h,i-1,(2/3)*h,M(i,2),i-1);
 end
 %Error
 M(:,5)=abs(M(:,4)-M(:,3));
-fprintf('      i                ti                   Y(ti)                  F(ti)              Error\n');   
+fprintf('      i                ti                   Y(ti)                  F(ti)              Error              K1                 K2\n');   
 M

@@ -50,7 +50,6 @@ for i=1:n
    fprintf('K4 = %9.15f\n',double(k4))
    M(i+1,3)=M(i,3)+(h/6)*(k1+2*k2+2*k3+k4);
    fprintf('Y%1.0f = %9.15f\n',i,double(M(i+1,3)))
-   i=i+1;
 end
 %Error
 M(:,5)=abs(M(:,4)-M(:,3));
