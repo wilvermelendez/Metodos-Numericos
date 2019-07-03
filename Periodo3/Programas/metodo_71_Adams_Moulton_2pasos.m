@@ -36,8 +36,7 @@ for i=2:n
     M(i+1,3)=M(i,3)+h/12*(5*f1+8*f2-f3);
     M(i+1,4)=double(subs(Ecua_dif,M(i+1,2)));
 end
-fprintf('              i             ti                 wi                 y(t)             Error');
-for i=1:n
-    M(i,5)=abs(M(i,4)-M(i,3));
-end
+%Error
+M(:,5)=abs(M(:,4)-M(:,3));
+fprintf('      i                ti                   Y(ti)                  F(ti)              Error\n');   
 M

@@ -29,7 +29,7 @@ for p=a:h:b
    M(d,4)=subs(m,p);
 end
 fprintf('La solución de la ecuación diferencial es :');
-fprintf('wi+1 = wi + (h/24)*(55f(ti,wi) - 59f(ti-1 , wi-1) + 37f(ti-2,wi-2) - 9f(ti-3,wi-3))\n');
+fprintf('Yi+1 = Yi + (h/24)*(55f(ti,yi) - 59f(ti-1 , yi-1) + 37f(ti-2,yi-2) - 9f(ti-3,yi-3))\n');
 pretty(m);
 f=f1;
 i=3;
@@ -46,5 +46,7 @@ for j=a:h:b
    i=1+i;
    M(i+1,3)=M(i,3)+((h/24)*((55*(subs(f,{x,y},{M(i,2),M(i,3)})))-(59*(subs(f,{x,y},{M(i-1,2),M(i-1,3)})))+(37*(subs(f,{x,y},{M(i-2,2),M(i-2,3)})))-(9*(subs(f,{x,y},{M(i-3,2),M(i-3,3)})))));
 end
-fprintf('              i             ti                 wi                 y(t)');   
+%Error
+M(:,5)=abs(M(:,4)-M(:,3));
+fprintf('      i                ti                   Y(ti)                  F(ti)              Error\n');   
 M

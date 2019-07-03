@@ -38,10 +38,12 @@ M(3,3)=double(subs(m,M(3,2)));
 M(1,4)=ya;
 a=a+(3*h);
 fprintf('FÓRMULAS DE CADA ITERACIÓN\n');
-fprintf('wi+1 = wi + (h/12)*(23f(ti,wi)-16f(ti-1 , wi-1)+ 5f(ti-2,wi-2))\n');
+fprintf('Yi+1 = Yi + (h/12)*(23f(ti,yi)-16f(ti-1 , yi-1)+ 5f(ti-2,yi-2))\n');
 for j=a:h:b
    i=1+i;
    M(i+1,3)=M(i,3)+((h/12)*((23*(subs(f1,{x,y},{M(i,2),M(i,3)})))-(16*(subs(f1,{x,y},{M(i-1,2),M(i-1,3)})))+(5*(subs(f1,{x,y},{M(i-2,2),M(i-2,3)})))));   
 end
-fprintf('              i             ti                 wi                 y(t)');   
+%Error
+M(:,5)=abs(M(:,4)-M(:,3));
+fprintf('      i                ti                   Y(ti)                  F(ti)              Error\n');   
 M

@@ -10,6 +10,7 @@ clear all
 clc
 fprintf('MÉTODO DE EXPLÍCITO DE ADAMS BASHFORTH DE DOS PASOS\n')
 syms x y
+e=input('Indique el orden a utilizar: ');
 d=input('Introduzca la ecuación diferencial: ');
 n=input('Introduzca la condición y(a)=b: ');
 f1=input('Introduzca la función de trabajo: ');
@@ -31,6 +32,7 @@ end
 fprintf('La solución de la ecuación diferencial es :');
 pretty(m);
 i=1;
+M
 M(1,2)=a;
 M(1,3)=ya;
 M(2,3)=double(subs(m,M(2,2)));
@@ -38,10 +40,12 @@ M(1,4)=ya;
 
 a=a+(2*h);
 fprintf('FÓRMULAS DE CADA ITERACIÓN\n');
-fprintf('wi+1 = wi + (h/2)*(3f(ti,wi)-f(ti-1 , wi-1))\n');
+fprintf('Yi+1 = Yi + (h/2)*(3f(ti,yi)-f(ti-1 , yi-1))\n');
 for j=a:h:b
    i=1+i;
    M(i+1,3)=M(i,3)+((h/2)*((3*(subs(f1,{x,y},{M(i,2),M(i,3)})))-(subs(f1,{x,y},{M(i,2),M(i,3)}))));
 end
-fprintf('              i             ti                 wi                 y(t)');   
+%Error
+M(:,5)=abs(M(:,4)-M(:,3));
+fprintf('      i                ti                   Y(ti)                  F(ti)              Error\n');   
 M
