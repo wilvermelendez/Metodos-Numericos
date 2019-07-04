@@ -76,7 +76,7 @@ for j = 1:length(t)-1
         %Por ultimo se encuentra el valor de K(1,i):
         K(1, i) = double(h*fi);
         fprintf('K1%d = h*f%d(t%d', i, i, j-1);
-        fprintf(', w%d%d', [1:m; repmat(j-1, 1, m)]);
+        fprintf(', y%d%d', [1:m; repmat(j-1, 1, m)]);
         fprintf(') = %.8f\n', double(K(1, i)));
     end
     %Se calculan los K(2,i):
@@ -88,7 +88,7 @@ for j = 1:length(t)-1
         end
         K(2, i) = h*fi;
         fprintf('K2%d = h*f%d(t%d + h/2', i, i, j-1);
-        fprintf(', w%d%d + 1/2*K%d%d', [1:m; repmat(j-1, 1, m); repmat(1, 1, m)
+        fprintf(', y%d%d + 1/2*K%d%d', [1:m; repmat(j-1, 1, m); repmat(1, 1, m)
             ; 1:m]);
         fprintf(') = %.8f\n', K(2, i));
     end
@@ -102,7 +102,7 @@ for j = 1:length(t)-1
         end
         K(3, i) = h*fi;
         fprintf('K3%d = h*f%d(t%d + h/2', i, i, j-1);
-        fprintf(', w%d%d + 1/2*K%d%d', [1:m; repmat(j-1, 1, m); repmat(2, 1, m); 1:m]);
+        fprintf(', Y%d%d + 1/2*K%d%d', [1:m; repmat(j-1, 1, m); repmat(2, 1, m); 1:m]);
         fprintf(') = %.8f\n', K(3, i));
     end
     fprintf('\n');
@@ -115,7 +115,7 @@ for j = 1:length(t)-1
         end
         K(4, i) = h*fi;
         fprintf('K4%d = h*f%d(t%d + h', i, i, j-1);
-        fprintf(', w%d%d + K%d%d', [1:m; repmat(j-1, 1, m); repmat(3, 1, m); 1:m]);
+        fprintf(', Y%d%d + K%d%d', [1:m; repmat(j-1, 1, m); repmat(3, 1, m); 1:m]);
         fprintf(') = %.8f\n', K(4, i));
     end
     fprintf('\n');
@@ -124,11 +124,13 @@ for j = 1:length(t)-1
     %aproximacion w:
     for i = 1:m
         w(i, j+1) = w(i, j) + 1/6*(K(1, i) + 2*K(2, i) + 2*K(3, i) + K(4, i));
-        fprintf('w%d%d = w%d%d + 1/6*(K1%d + 2*K2%d + 2*K3%d + K4%d) = %.8f\n', i, j, i, j-1, i, i, i, i, w(i, j+1));
+        fprintf('Y%d%d = Y%d%d + 1/6*(K1%d + 2*K2%d + 2*K3%d + K4%d) = %.8f\n', i, j, i, j-1, i, i, i, i, w(i, j+1));
     end
     
     fprintf('--------------------------------------------------------------------------------\n');
 end
+t'
+K
 
 %Deja solamente los ultimos resultados y los retorna:
 w = w(:, end);
