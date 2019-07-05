@@ -1,7 +1,35 @@
-#H1 Métodos numéricos /Análisis numérico
+Métodos numéricos /Análisis numérico
+==================
 Este es un repositorio pensado para almacenar todos los programas ordenados por unidad y tema de la materia métodos númericos., utilizando matlab en su versión 2015 b
 
 Nota: Algunos de estos programas fuerón creados por otros estudiantes, pero yo los modifiqué acorde a mi necesidades y requerimientos del docente por lo que agregué varios procesos para mejoralos.
+
+## Lista de programas ##
+*   Periodo 1
+    * Método de bisección
+    * Método de punto fijo
+    * Método de Newton
+    * Método de la Secante
+    * Método de posición falsa
+    * Método de Steffensen
+    * Método de Muller
+    * Método de Horner
+    * Método de Lagrange
+    * Método de Neville
+    * Método de diferencias divididas
+    * Método de Hermite Lagrange
+    * Método de Hermite diferencias divididas
+    * Método de trazadores cúbicos
+*   Periodo 2 [Para el este periodo todos los procesos son manuales por lo que no hay programas]
+    * Método de Richardson
+    * Método de Romberg
+*   Periodo 3
+    * Método de Euleer
+    * Método de Taylor de orden superior
+    * Método de Runge Kutta 
+
+
+
 
 Estos programas fuerón utilizados exitosamente para cursar la materia de Métodos numéericos de la Universidad Don Bosco de El Salvador
 
