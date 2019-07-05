@@ -9,7 +9,7 @@
 clear all
 disp('Método de RUNGE-KUTTA-FEHLBERG de orden 5');
 syms x y
-d=input('Ingrese la ecuación diferencial en (ej ''Dy=cos(2*x)+sin(3*x)''): ');
+d=input('Ingrese la ecuación diferencial (ej ''Dy=cos(2*x)+sin(3*x)''): ');
 n=input('Ingrese la condición y(a)=b: ');
 f1=input('Ingrese la función de trabajo: ');
 ya=input('Ingrese el valor de la condicion inicial: ');

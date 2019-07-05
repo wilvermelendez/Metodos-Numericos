@@ -10,7 +10,7 @@ clear all
 clc
 fprintf('MÉTODO DE EXPLÍCITO DE ADAMS BASHFORTH DE TRES PASOS\n')
 syms x y
-d=input('Introduzca la ecuación diferencial(x,y): ');
+d=input('Introduzca la ecuación diferencial (ej ''Dy=cos(2*x)+sin(3*x)''):: ');
 n=input('Introduzca la condición y(a)=b: ');
 f1=input('Introduzca la función de trabajo: ');
 ya=input('Introduzca la condición inicial: ');
