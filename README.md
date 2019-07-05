@@ -2,6 +2,8 @@ Métodos numéricos /Análisis numérico
 ==================
 Este es un repositorio pensado para almacenar todos los programas ordenados por unidad y tema de la materia métodos númericos., utilizando matlab en su versión 2015 b
 
+Estos programas fuerón utilizados exitosamente para cursar la materia de Métodos numéericos de la Universidad Don Bosco de El Salvador
+
 Nota: Algunos de estos programas fuerón creados por otros estudiantes, pero yo los modifiqué acorde a mi necesidades y requerimientos del docente por lo que agregué varios procesos para mejoralos.
 
 ## Lista de programas ##
@@ -45,11 +47,12 @@ Nota: Algunos de estos programas fuerón creados por otros estudiantes, pero yo 
     * Método de Broyden para sistemas de 2 y3 ecuaciones no lineales
 
       
-Estos programas fuerón utilizados exitosamente para cursar la materia de Métodos numéericos de la Universidad Don Bosco de El Salvador
+## Instrucciones de uso de algunos programas ##
 
-Acontinuación muestró como usar el programa para solventar sistemas de ecuaciones de orden superior con un ejemplo.
 
-Posterior despejar Dx y Dx obtenemos los valores exactos y valores aproximados
+### Método de Runge Kutta orden 4 para sistemas de ecuación y orden superior ###
+
+Teniendo las ecuaciones desjadas en Dx y Dx de la siguiente forma
 
 `>> Dx=(378*exp(-t) - 554*exp(-2*t) - 88*cos(t) + 101*sin(t)-101*x)/(-88);`
 
@@ -57,6 +60,7 @@ Posterior despejar Dx y Dx obtenemos los valores exactos y valores aproximados
 
 Exacta utilizando el comando dsolve
 
+#### Exacta ####
 `>> syms t y x`
 
 `>> T=[0:1/200:1/40];`
@@ -81,7 +85,7 @@ Exacta utilizando el comando dsolve
    
  `  0.073158370969950  -1.023470887083570`
    
-
+#### Aproximada ####
 Aproximada utilizando el programa de matlab
 
 `>> syms U1 U2 t`
