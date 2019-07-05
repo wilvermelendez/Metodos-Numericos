@@ -42,7 +42,7 @@ Exacta utilizando el comando dsolve
 
 Aproximada utilizando el programa de matlab
 
-`>> syms U1 U2 t
+`>> syms U1 U2 t`
 
 `>> dU1=(378*exp(-t) - 554*exp(-2*t) - 88*cos(t) + 101*sin(t)-101*U1)/(-88);`
 
