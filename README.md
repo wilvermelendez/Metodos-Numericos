@@ -26,11 +26,25 @@ Nota: Algunos de estos programas fuerón creados por otros estudiantes, pero yo 
 *   Periodo 3
     * Método de Euleer
     * Método de Taylor de orden superior
-    * Método de Runge Kutta 
+    * Método de Runge Kutta punto medio
+    * Método de Runge Kutta Heun
+    * Método de Runge Kutta orden 4
+    * Método de Runge Kutta Felbergh orden 4
+    * Método de Runge Kutta Felbergh orden 5
+    * Método de Runge Kutta Adam Bashforth 2 pasos
+    * Método de Runge Kutta Adam Bashforth 3 pasos
+    * Método de Runge Kutta Adam Bashforth 4 pasos
+    * Método de Runge Kutta Adam Bashforth 5 pasos
+    * Método de Runge Kutta Adam Moulton 2 pasos
+    * Método de Runge Kutta Adam Moulton 3 pasos
+    * Método de Runge Kutta Adam Moulton 5 pasos
+    * Método de Extrapolación
+    * Método de Runge Kutta orden 4 para sistemas de ecuación y orden superior
+    * Método de punto fijo para sistemas de 2 y3 ecuaciones no lineales
+    * Método de Newton para sistemas de 2 y3 ecuaciones no lineales
+    * Método de Broyden para sistemas de 2 y3 ecuaciones no lineales
 
-
-
-
+      
 Estos programas fuerón utilizados exitosamente para cursar la materia de Métodos numéericos de la Universidad Don Bosco de El Salvador
 
 Acontinuación muestró como usar el programa para solventar sistemas de ecuaciones de orden superior con un ejemplo.
