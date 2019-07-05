@@ -8,43 +8,43 @@ Nota: Algunos de estos programas fuerón creados por otros estudiantes, pero yo 
 
 ## Lista de programas ##
 *   Periodo 1
-    * Método de bisección
-    * Método de punto fijo
-    * Método de Newton
-    * Método de la Secante
-    * Método de posición falsa
-    * Método de Steffensen
-    * Método de Muller
-    * Método de Horner
-    * Método de Lagrange
-    * Método de Neville
-    * Método de diferencias divididas
-    * Método de Hermite Lagrange
-    * Método de Hermite diferencias divididas
-    * Método de trazadores cúbicos
+    * [Método de bisección](https://github.com/wilvermelendez/Metodos-Numericos/blob/master/Periodo1/Unidad1/P1_Biseccion.m)
+    * [Método de punto fijo](https://github.com/wilvermelendez/Metodos-Numericos/blob/master/Periodo1/Unidad1/P2_Punto_Fijo.m)
+    * [Método de Newton](https://github.com/wilvermelendez/Metodos-Numericos/blob/master/Periodo1/Unidad1/P3_Newton.m)
+    * [Método de la Secante](https://github.com/wilvermelendez/Metodos-Numericos/blob/master/Periodo1/Unidad1/P4_Secante.m)
+    * [Método de posición falsa](https://github.com/wilvermelendez/Metodos-Numericos/blob/master/Periodo1/Unidad1/P5_Posicion_Falsa.m)
+    * [Método de Steffensen]()
+    * [Método de Muller]()
+    * [Método de Horner]()
+    * [Método de Lagrange]()
+    * [Método de Neville]()
+    * [Método de diferencias divididas]()
+    * [Método de Hermite Lagrange]()
+    * [Método de Hermite diferencias divididas]()
+    * [Método de trazadores cúbicos]()
 *   Periodo 2 [Para el este periodo todos los procesos son manuales por lo que no hay programas]
-    * Método de Richardson
-    * Método de Romberg
+    * [Método de Richardson]()
+    * [Método de Romberg]()
 *   Periodo 3
-    * Método de Euleer
-    * Método de Taylor de orden superior
-    * Método de Runge Kutta punto medio
-    * Método de Runge Kutta Heun
-    * Método de Runge Kutta orden 4
-    * Método de Runge Kutta Felbergh orden 4
-    * Método de Runge Kutta Felbergh orden 5
-    * Método de Runge Kutta Adam Bashforth 2 pasos
-    * Método de Runge Kutta Adam Bashforth 3 pasos
-    * Método de Runge Kutta Adam Bashforth 4 pasos
-    * Método de Runge Kutta Adam Bashforth 5 pasos
-    * Método de Runge Kutta Adam Moulton 2 pasos
-    * Método de Runge Kutta Adam Moulton 3 pasos
-    * Método de Runge Kutta Adam Moulton 5 pasos
-    * Método de Extrapolación
-    * Método de Runge Kutta orden 4 para sistemas de ecuación y orden superior
-    * Método de punto fijo para sistemas de 2 y3 ecuaciones no lineales
-    * Método de Newton para sistemas de 2 y3 ecuaciones no lineales
-    * Método de Broyden para sistemas de 2 y3 ecuaciones no lineales
+    * [Método de Euleer]()
+    * [Método de Taylor de orden superior]()
+    * [Método de Runge Kutta punto medio]()
+    * [Método de Runge Kutta Heun]()
+    * [Método de Runge Kutta orden 4]()
+    * [Método de Runge Kutta Felbergh orden 4]()
+    * [Método de Runge Kutta Felbergh orden 5]()
+    * [Método de Runge Kutta Adam Bashforth 2 pasos]()
+    * [Método de Runge Kutta Adam Bashforth 3 pasos]()
+    * [Método de Runge Kutta Adam Bashforth 4 pasos]()
+    * [Método de Runge Kutta Adam Bashforth 5 pasos]()
+    * [Método de Runge Kutta Adam Moulton 2 pasos]()
+    * [Método de Runge Kutta Adam Moulton 3 pasos]()
+    * [Método de Runge Kutta Adam Moulton 5 pasos]()
+    * [Método de Extrapolación]()
+    * [Método de Runge Kutta orden 4 para sistemas de ecuación y orden superior]()
+    * [Método de punto fijo para sistemas de 2 y3 ecuaciones no lineales]()
+    * [Método de Newton para sistemas de 2 y3 ecuaciones no lineales]()
+    * [Método de Broyden para sistemas de 2 y3 ecuaciones no lineales]()
 
       
 ## Instrucciones de uso de algunos programas ##
