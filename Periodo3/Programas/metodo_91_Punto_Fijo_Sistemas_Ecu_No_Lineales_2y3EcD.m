@@ -23,8 +23,8 @@ switch opc
         x(1,2)=input('Introduzca el valor de x2: ');
 
         k=0;
-        error=input('Introduzca el valor de precisión: 10^-');
-        error=10^(error*-1);
+        errorPrecision=input('Precisión: 10^-');
+        errorPrecision=10^(errorPrecision*-1);
         for i=1:2
             p(i)=x(1,i);
         end
@@ -35,11 +35,11 @@ switch opc
         end
         tol=norm(p-w,inf);
         fprintf('K  x1(k)        x2(k)           error\n')
-        %fprintf('\n%d  %9.15f  %9.15f  %9.15f',k,x(1,1),x(1,2))
-        fprintf('%d  %9.15f  %9.15f  %e\n',k,x(2,1),x(2,2),tol)
+        fprintf('\n%d  %9.15f  %9.15f  %9.15f\n',k,x(1,1),x(1,2));
+        fprintf('%d  %9.15f  %9.15f  %e\n',k,x(2,1),x(2,2),tol);
         k=k+1;
         j=3;
-        while tol>error
+        while tol>errorPrecision
             x(j,1)=subs(fx1,{x1,x2},{x(j-1,1),x(j-1,2)});
             x(j,2)=subs(fx2,{x1,x2},{x(j-1,1),x(j-1,2)});
             p=w;
@@ -60,8 +60,9 @@ switch opc
         x(1,1)=input('Introduzca el valor de x1: ');
         x(1,2)=input('Introduzca el valor de x2: ');
         x(1,3)=input('Introduzca el valor de x3: ');
-        k=input('Valor de k= ');
-        error=input('Introduzca el valor de precisión: ');
+        k=0;
+        errorPrecision=input('Precisión: 10^-');
+        errorPrecision=10^(errorPrecision*-1);
         for i=1:3
             p(i)=x(1,i);
         end
@@ -72,12 +73,12 @@ switch opc
             w(i)=x(2,i);
         end
         tol=norm(p-w,inf);
-        fprintf('K  x1(k)        x2(k)         x3(k)         error\n')
-        %fprintf('\n%d  %9.15f  %9.15f  %9.15f',k,x(1,1),x(1,2),x(1,3))
-        fprintf('%d  %9.15f  %9.15f  %9.15f  %e\n',k+1,x(2,1),x(2,2),x(2,3),tol)
+        fprintf('K   x1(k)               x2(k)               x3(k)                error\n')
+        fprintf('%d  %9.15f  %9.15f  %9.15f\n',k,x(1,1),x(1,2),x(1,3));
+        fprintf('%d  %9.15f  %9.15f  %9.15f  %e\n',k+1,x(2,1),x(2,2),x(2,3),tol);
         k=k+2;
         j=3;
-        while tol>error
+        while tol>errorPrecision
             x(j,1)=subs(fx1,{x1,x2,x3},{x(j-1,1),x(j-1,2),x(j-1,3)});
             x(j,2)=subs(fx2,{x1,x2,x3},{x(j-1,1),x(j-1,2),x(j-1,3)});
             x(j,3)=subs(fx3,{x1,x2,x3},{x(j-1,1),x(j-1,2),x(j-1,3)});
