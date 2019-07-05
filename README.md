@@ -35,10 +35,10 @@ Aproximada utilizando el programa de matlab
 >> dU1=(378*exp(-t) - 554*exp(-2*t) - 88*cos(t) + 101*sin(t)-101*U1)/(-88);
 >> dU2=(567*exp(-t) - 554*exp(-2*t)+101*U2)/(88);
 >> metodo_90_Ecuaciones_OrdenSuper_Sistemas([dU1, dU2],[0 1/40], 1/200,[0 -1])
-Resultados de las últimas Y o W acorde al tipo de variable utilizada en la fófula
+Resultados de las últimas Y o W acorde al tipo de variable utilizada en la fórmula.
+
 ans =
 
    0.073158370973584
   -1.023470887086914
 
->> 
